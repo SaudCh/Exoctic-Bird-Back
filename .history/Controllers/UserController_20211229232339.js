@@ -1,6 +1,6 @@
 const HttpError = require("../Models/http-error");
 const userSchema = require("../Models/userSchema");
-const fs = require("fs")
+
 
 const getUserById = async (req, res, next) => {
   //const { uid } = req.body;
@@ -139,10 +139,7 @@ const deleteUser = async (req, res, next) => {
   if (!user) {
     return next(new HttpError("No User Found for that id", 404));
   }
-  image = user.image
-  fs.unlink(image, err => {
-    console.log(err)
-  })
+
   res.status(200).json({ message: "User Deleted" });
 }
 

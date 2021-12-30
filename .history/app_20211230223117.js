@@ -39,10 +39,10 @@ app.use((error, req, res, next) => {
   res.json({ message: error.message || "An unknown error occurred!" });
 });
 
-//mongodb+srv://test:Test.1234@cluster0.l7gmh.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+// const url = "mongodb://localhost:27017/exoticbirds"
 
 mongoose
-  .connect("mongodb://localhost:27017/exoticbirds")
+  .connect("mongodb + srv://test:Test.1234@cluster0.l7gmh.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
   .then(() => {
     console.log("Connected");
     app.listen(5000);

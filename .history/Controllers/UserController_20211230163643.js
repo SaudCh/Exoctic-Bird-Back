@@ -135,11 +135,11 @@ const deleteUser = async (req, res, next) => {
     const error = new HttpError("Failed", 500);
     return next(error);
   }
-
+  image = user.image
   if (!user) {
     return next(new HttpError("No User Found for that id", 404));
   }
-  image = user.image
+
   fs.unlink(image, err => {
     console.log(err)
   })
